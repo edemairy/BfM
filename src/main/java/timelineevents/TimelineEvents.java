@@ -40,6 +40,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.effect.Lighting;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -76,24 +77,29 @@ public class TimelineEvents extends Application {
     private void init(Stage primaryStage) {
         Group root = new Group();
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 260, 100));
+        primaryStage.setScene(new Scene(root, 2600, 1000));
 
         final Unit defender = new Unit("SU", Unit.SIZE.ARMY, 3,3,Unit.TYPE.INFANTRY, "third");
-        defender.setTranslateX(50);
-        defender.setTranslateY(30);
+        defender.setTranslateX(Unit.WIDTH * 2);
+        defender.setTranslateY(Unit.WIDTH * 2);
         root.getChildren().add(defender);
 
         final Unit defender2 = new Unit("SU", Unit.SIZE.ARMY, 4,3,Unit.TYPE.INFANTRY, "fourth");
+        defender2.setTranslateX(Unit.WIDTH * 3);
+        defender2.setTranslateY(Unit.WIDTH * 3);
         root.getChildren().add(defender2);
 
         //create a attacker with effect
         final Unit attacker = new Unit("GE", Unit.SIZE.ARMY, 12,6,Unit.TYPE.PANZER, "XLV");
-        attacker.setEffect(new Lighting());
+//        attacker.setEffect(new Lighting());
+        attacker.setTranslateX(Unit.WIDTH * 2);
+        attacker.setTranslateY(Unit.WIDTH * 3);
         //create a layout for attacker with text inside
         final StackPane stack = new StackPane();
         stack.getChildren().add(attacker);
-        stack.setLayoutX(defender.getTranslateX() - (COUNTER_WIDTH + HSPACE));
-        stack.setLayoutY(defender.getTranslateY());
+//        stack.getChildren().addAll(new Rectangle(100,100,Color.BLUE), new Label("Go!"));
+//        stack.setLayoutX(defender.getTranslateX() - (COUNTER_WIDTH + HSPACE));
+//        stack.setLayoutY(defender.getTranslateY());
 
         //create a timeline for moving the attacker
 

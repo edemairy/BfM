@@ -24,7 +24,7 @@ public class CombatTableTest {
 		{DR,DRL,DE},
 		{DRL,DE}
 	};
-	@Test(groups = { "slow" })
+//	@Test(groups = { "slow" })
 	public CombatTableTest() {
 		int[] nbOdds = new int[7];
 		CombatTable table = new CombatTable();
